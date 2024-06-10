@@ -25,7 +25,7 @@ export default defineConfig({
   server:{
     proxy:{
       "/wubug":{
-        target:"http://localhost:3001/",
+        target:"https://text-vercel.wubug.cn/",
         changeOrigin:true,
         rewrite:(path)=>path.replace(/^\/wubug/,"")
       }
