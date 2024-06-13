@@ -19,6 +19,7 @@ const addHibit = async () => {
         title,description
     })
     if(result.data){
+        console.log(result.data)
         window.location.reload()
     }
 }

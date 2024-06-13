@@ -7,11 +7,11 @@ const router = useRouter()
 const props = defineProps(['habit'])
 const isDisabled = ref(false)
 
+// 结束habit
 const gameOver = async () => {
     isDisabled.value = true
-    const result = await axios.post('/wubug/habit/' + props.habit.id, {
-        isEnd: true,
-        endTime: new Date()
+    const result = await axios.put('/wubug/habit/' + props.habit.id, {
+        isEnd: true
     })
     if (result.data) {
         window.location.reload()
@@ -23,6 +23,7 @@ const gameOver = async () => {
 <template>
     <Tag :id="habit.id"></Tag>
     <h1>habit</h1>
+    <pre>{{ habit }}</pre>
     <h2>{{ habit.title }}</h2>
     <p>创建时间{{ habit.createdAt }}：</p>
     <p>{{ habit.description }}</p>

@@ -5,15 +5,14 @@ import ShowHabit from '../components/habit/showHabit.vue'
 
 import axios from 'axios';
 const showhabit = ref('null')
-const habit = ref({ name: 1 })
+const habit = ref({})
 onMounted(async () => {
-    const result = await axios.get('/wubug/habit')
-    if (!result.data) {
+    const {data:result} = await axios.get('/wubug/habit')
+    if (!result.habit) {
         showhabit.value = 'new'
     } else {
-        habit.value = result.data
+        habit.value = result.habit
         showhabit.value = 'show'
-        console.log(habit.value)
     }
 })
 </script>

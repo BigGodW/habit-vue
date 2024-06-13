@@ -11,11 +11,13 @@ const wait = (ms) => {
     })
 }
 onMounted(async () => {
-    const result = await axios.get('/wubug/tag/habit/' + props.id)
-    if (!result.data.length) {
+    // 获取相关tag
+    const {data:result} = await axios.get('/wubug/tag/habit/' + props.id)
+    console.log(result)
+    if (!result.tags.length) {
         tagList.value.push({ id: 2, text: "空空如也 发条弹幕吧~~~~" })
     } else {
-        const data = result.data.map((item) => {
+        const data = result.tags.map((item) => {
             return { id: item.id, text: item.title }
         })
         console.log(data)
@@ -32,9 +34,8 @@ const addTag = async ()=>{
     if(!newTag.value) return false
     tagIsDisabled.value = true
     tagList.value.push({id:1,text:newTag.value})
-    const result = await axios.post('/wubug/tag',{
-        title:newTag.value,
-        habitId:props.id
+    const result = await axios.post('/wubug/tag/'+props.id,{
+        title:newTag.value
     })
     if(result.data){
         newTag.value = ''
