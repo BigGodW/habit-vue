@@ -1,0 +1,6 @@
+{
+    "rewrites":[{
+        "source":"/wubug/(.*)",
+        "destination":"https://text-vercel.wubug.cn/api/$1"
+    }]
+}
