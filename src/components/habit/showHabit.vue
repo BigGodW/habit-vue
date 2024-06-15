@@ -9,6 +9,7 @@ const isDisabled = ref(false)
 import dayjs from 'dayjs'
 dayjs.locale('zh-cn')
 import relativeTime from 'dayjs/plugin/relativeTime'
+import { watch } from 'vue';
 dayjs.extend(relativeTime)
 // 结束habit
 const gameOver = async () => {
@@ -21,18 +22,31 @@ const gameOver = async () => {
     }
 }
 const goingTime = ref({})
-
-onMounted(()=>{
-   const sss = dayjs().diff(dayjs(props.habit.createdAt))
-   const SS = Math.floor(sss/1000)
-   const dd = Math.floor(SS/86400)
-   const hh = Math.floor((SS-dd*86400)/3600)
-   const mm = Math.floor((SS-dd*86400-hh*3600)/60)
-   const ss = SS-dd*86400-hh*3600-mm*60
-   goingTime.value = {dd,hh,mm,ss}
+const timeSS = ref(0)
+const set10 = (value)=>{
+    if(value<10){
+        return '0'+value
+    }return value
+}
+const getGoingTime = () => {
+    const sss = dayjs().diff(dayjs(props.habit.createdAt))
+    const SS = Math.floor(sss / 1000)
+    timeSS.value = SS
+    const dd = Math.floor(SS / 86400)
+    const hh = set10(Math.floor((SS - dd * 86400) / 3600))
+    
+    const mm = set10(Math.floor((SS - dd * 86400 - hh * 3600) / 60))
+    const ss = set10(SS - dd * 86400 - hh * 3600 - mm * 60)
+    goingTime.value = { dd, hh, mm, ss }
+}
+onMounted(() => {
+    getGoingTime()
+    setInterval(() => { timeSS.value++ }, 1000)
 
 })
-
+watch(timeSS,()=>{
+    getGoingTime()
+})
 
 </script>
 <template>
@@ -44,11 +58,12 @@ onMounted(()=>{
             <p>开始：{{ dayjs(habit.createdAt).format('YYYY年MM月DD日 HH:mm:ss') }}</p>
             <p>您坚持了：{{ goingTime.dd }}天{{ goingTime.hh }}小时{{ goingTime.mm }}分钟{{ goingTime.ss }}秒</p>
             <div class="card-cations">
-                <button class="btn btn-primary" @click="gameOver" :loading="isDisabled" :disabled="isDisabled">结束</button>
+                <button class="btn btn-primary" @click="gameOver" :loading="isDisabled"
+                    :disabled="isDisabled">结束</button>
             </div>
         </div>
     </div>
-    
+
 
 
 </template>
