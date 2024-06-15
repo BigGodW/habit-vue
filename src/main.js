@@ -1,5 +1,6 @@
 import './assets/main.css'
-import '//at.alicdn.com/t/c/font_4580137_7o4iud1bkr2.js'
+import '//at.alicdn.com/t/c/font_4580137_awogcv9preo.js'
+
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'

@@ -48,7 +48,7 @@ const addTag = async ()=>{
         <div class="video" style="width: 100%; height: 150px"></div>
     </van-barrage>
     
-    <van-cell-group inset class=" fixed bottom-4 left-0 right-0">
+    <van-cell-group inset class="z-50 fixed bottom-4 left-0 right-0">
         <van-field v-model="newTag" center clearable  placeholder="骚话来一句">
             <template #button>
                 <van-button size="small" type="primary" :disabled="tagIsDisabled" @click="addTag">发送</van-button>
