@@ -17,7 +17,7 @@ onMounted(async () => {
 })
 </script>
 <template>
-    <div class="y-2 ">
+    <div class="">
         <div v-if="showhabit == 'null'">
             <div class="py-12"></div>
             <van-empty image="search">

@@ -1,6 +1,7 @@
 <script setup>
 import axios from 'axios';
 import { ref, onMounted } from 'vue'
+import MyIcon from '../MyIcon.vue';
 const tagList = ref([])
 const props = defineProps(['id'])
 const wait = (ms) => {
@@ -44,15 +45,19 @@ const addTag = async ()=>{
 
 </script>
 <template>
-    <van-barrage  :delay="500" rows="3" v-model="tagList">
-        <div class="video" style="width: 100%; height: 150px"></div>
+    <van-barrage  :delay="1000" rows="3" v-model="tagList">
+        <div class="video w-full h-24" ></div>
     </van-barrage>
     
-    <van-cell-group inset class="z-50 fixed bottom-4 left-0 right-0">
+    <div class=" bg-slate-50 z-50 fixed bottom-4 left-0 right-0 p-2">
+        <van-cell-group inset class="">
         <van-field v-model="newTag" center clearable  placeholder="骚话来一句">
             <template #button>
-                <van-button size="small" type="primary" :disabled="tagIsDisabled" @click="addTag">发送</van-button>
+                <van-button  size="small" type="primary" :disabled="tagIsDisabled" @click="addTag">
+                    <span class=" font-bold">发送</span>
+                </van-button>
             </template>
         </van-field>
     </van-cell-group>
+    </div>
 </template>

@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { ref } from 'vue'
 import { useRouter } from 'vue-router';
+import MyIcon from '../MyIcon.vue';
 const router = useRouter()
 const newHabit = ref({
     title: "",
@@ -26,14 +27,14 @@ const addHibit = async () => {
 
 </script>
 <template>
-    <div>
-        <h1 class=" p-2 text-center py-2 text-2xl leading-loose font-bold">
-            一个新的flag
-            <span class="animate-bounce">
-                <svg class="icon text-3xl inline animate-bounce" aria-hidden="true">
-                    <use xlink:href="#icon-flag"></use>
-                </svg>
-            </span>
+    <div class=" h-screen bg-contain bg-no-repeat bg-bottom" 
+    style="background-image: url('https://bgwblog.wubug.cn/VR%E4%B8%96%E7%95%8C.png');">
+    <div class="card shadow-xl m-2">
+        <div class="card-body">
+            <h1 class=" p-2 text-center py-2 text-2xl leading-loose font-bold">
+            <MyIcon name="icon-ziyuan" size="text-3xl"></MyIcon>
+            flag
+            <MyIcon name="icon-yanhua" size="text-3xl"></MyIcon>
         </h1>
 
         <van-cell-group inset>
@@ -46,5 +47,8 @@ const addHibit = async () => {
         <svg class="animate-bounce icon text-6xl fixed right-1 bottom-1" aria-hidden="true">
             <use xlink:href="#icon-xingbienannv"></use>
         </svg>
+        </div>
     </div>
+</div>
 </template>
+
