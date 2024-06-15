@@ -17,7 +17,7 @@ onMounted(async () => {
 })
 </script>
 <template>
-    <div class="y-2 bg-slate-100 bg-gradient-to-r from-cyan-500 to-blue-500 h-screen">
+    <div class="y-2 ">
         <div v-if="showhabit == 'null'">
             <div class="py-12"></div>
             <van-empty image="search">

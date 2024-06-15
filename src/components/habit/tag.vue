@@ -13,7 +13,6 @@ const wait = (ms) => {
 onMounted(async () => {
     // 获取相关tag
     const {data:result} = await axios.get('/wubug/tag/habit/' + props.id)
-    console.log(result)
     if (!result.tags.length) {
         tagList.value.push({ id: 2, text: "空空如也 发条弹幕吧~~~~" })
     } else {
@@ -49,7 +48,7 @@ const addTag = async ()=>{
         <div class="video" style="width: 100%; height: 150px"></div>
     </van-barrage>
     
-    <van-cell-group inset>
+    <van-cell-group inset class=" fixed bottom-4 left-0 right-0">
         <van-field v-model="newTag" center clearable  placeholder="骚话来一句">
             <template #button>
                 <van-button size="small" type="primary" :disabled="tagIsDisabled" @click="addTag">发送</van-button>
