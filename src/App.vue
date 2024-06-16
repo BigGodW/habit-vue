@@ -5,7 +5,7 @@ import webNav from './components/webNav.vue'
 
 <template>
   <div class="p-2 text-xl bg-slate-50 h-screen">
-    <!-- <webNav></webNav> -->
+    <webNav></webNav>
     <RouterView />
   </div>
 </template>
