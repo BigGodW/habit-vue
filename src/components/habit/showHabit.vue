@@ -60,7 +60,7 @@ watch(timeSS, () => {
         <figure><img src="https://bgwblog.wubug.cn/%E5%9B%BE%E6%80%AA%E5%85%BD_%E5%9B%BE%E6%80%AA%E5%85%BD%E5%8E%9F%E5%88%9B%E5%85%83%E7%B4%A0%E6%8F%92%E7%94%BB%E6%97%A9%E5%AE%89%E8%93%9D%E5%A4%A9%E9%A6%96%E5%9B%BE.jpg" alt="Shoes" /></figure>
         <div class="card-body ">
             <h2 class="card-title">
-                <p class="text-center text-3xl text-blue-900">{{ habit.title }}</p>
+                <p class="text-center text-3xl text-blue-900">{{ habit.title.replace('白袜','**') }}</p>
             </h2>
             <p class=" line-clamp-2 text-blue-600 text-center">{{ habit.description }}</p>
             <!-- <p>开始：{{ dayjs(habit.createdAt).format('YYYY年MM月DD日 HH:mm:ss') }}</p> -->
