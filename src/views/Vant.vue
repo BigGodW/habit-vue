@@ -1,11 +1,16 @@
 <script setup></script>
 <template>
     <h1>vant</h1>
-    
-    <svg class="icon " aria-hidden="true">
-    <use xlink:href="#icon-icon-test"></use>
-</svg> 
-<svg class="icon text-3xl" aria-hidden="true">
-    <use xlink:href="#icon-icon-test"></use>
-</svg>
+    <div>
+        <h1>grid</h1>
+        <div class="box overflow-hidden bg-slate-200">
+            <div class="flex gap-2 overflow-auto p-2 -mb-2">
+            <div v-for="i in 10" class="bg-red-200 p-2 m-2 text-center rounded-lg">
+                
+                <MyIcon name="icon-ziyuan" size="text-3xl"></MyIcon>
+                <p>{{ i }}</p>
+            </div>
+        </div>
+        </div>
+    </div>
 </template>

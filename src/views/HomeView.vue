@@ -30,7 +30,7 @@ const weblist = ref([{
         </div>
       </div>
     </div>
-    <svg class="icon text-9xl" aria-hidden="true">
+    <svg class="icon text-9xl fixed bottom-0 right-0 opacity-60" aria-hidden="true">
       <use xlink:href="#icon-xingbienannv"></use>
     </svg>
   </main>

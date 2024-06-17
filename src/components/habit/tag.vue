@@ -54,7 +54,10 @@ const addTag = async ()=>{
         <van-field v-model="newTag" center clearable  placeholder="骚话来一句">
             <template #button>
                 <van-button  size="small" type="primary" :disabled="tagIsDisabled" @click="addTag">
-                    <span class=" font-bold">发送</span>
+                    <span class=" font-bold flex items-center"> 
+                        发送
+                        <MyIcon name="icon-fasong" size="text-3xl"></MyIcon>
+                    </span>
                 </van-button>
             </template>
         </van-field>
